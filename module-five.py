@@ -27,10 +27,6 @@ print(name_list) # last name in the list disappears (if no index provided)
 
 
 # uppgift 6 - 7 (lägga till och ta bort namn)
-def is_quit_input(user_input):
-    return user_input == "q"
-
-
 def show_names(name_list):
     if len(name_list) == 0:
         print("\nYour name list is empty.")
@@ -48,11 +44,12 @@ def remove_name(name_list):
         show_names(name_list)
         user_input = input("name to remove :")
         
-        if is_quit_input(user_input):
+        if user_input == "q":
             return
         elif user_input in name_list:
             removal_name_index = name_list.index(user_input)
             name_list.pop(removal_name_index) # name_list.remove(name) if you want to delete multiple identical same names. 
+            return name_list
         elif len(name_list) > 0:
             print("No such name found in the list.")
         
@@ -68,10 +65,10 @@ name_list = []
 while True:
     user_input = input("name to add: ").strip(" ")
 
-    if is_quit_input(user_input):
+    if user_input == "q":
         break
     elif user_input == "r":
-        remove_name(name_list)
+        name_list = remove_name(name_list)
     else:
         name_list = add_name(user_input, name_list)
 
