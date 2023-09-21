@@ -45,11 +45,10 @@ def remove_name(name_list):
         user_input = input("name to remove :")
         
         if user_input == "q":
-            return
+            return name_list
         elif user_input in name_list:
             removal_name_index = name_list.index(user_input)
             name_list.pop(removal_name_index) # name_list.remove(name) if you want to delete multiple identical same names. 
-            return name_list
         elif len(name_list) > 0:
             print("No such name found in the list.")
         
